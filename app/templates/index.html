@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Clientes</title></head>
+<body>
+    <h1>Lista de Clientes</h1>
+    <ul>
+        {% for cliente in clientes %}
+        <li>
+            <a href="{{ url_for('main.cliente', cliente_id=cliente.id) }}">
+                {{ cliente.nome }}
+            </a> - Próxima Manutenção: {{ cliente.data_proxima_manutencao }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('main.adicionar') }}">Adicionar Cliente</a>
+</body>
+</html>
